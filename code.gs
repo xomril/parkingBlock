@@ -13,7 +13,6 @@ function test(){
       var options = {
         'method' : 'POST',
         'contentType': 'application/json',
-        // Convert the JavaScript object to a JSON string.
         'payload' : JSON.stringify(data)
       };
       
@@ -25,7 +24,7 @@ function testTable(){
     var values = spots.getDataRange().getValues();
     for(var i=0; i < values.length; i++) {
       var phone = ""+values[i][2];
-      if(phone!="" && phone.substring(0,1) !="0") phone = '0' + phone;
+      if(phone!="" && phone[0]!='0') phone = '0' + phone;
       table[i] = {"spot": values[i][0], "name": values[i][1],"phone": phone};
     }  
      var JSONString = JSON.stringify(table);
